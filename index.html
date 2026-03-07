@@ -3,43 +3,288 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мистери Бокс — Сюрприз за 3500₽</title>
+  <title>Мистери Бокс — Сюрприз за 3500₽ | мистерибокс.рф</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; text-align: center; }
-    .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    h1 { color: #2c3e50; margin-bottom: 10px; }
-    .price { font-size: 28px; color: #e74c3c; font-weight: bold; margin: 20px 0; }
-    .btn { display: inline-block; background: #3498db; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 10px 0; }
-    .btn:hover { background: #2980b9; }
-    .features { text-align: left; margin: 25px 0; }
-    .features li { margin: 8px 0; }
-    .footer { margin-top: 30px; font-size: 14px; color: #7f8c8d; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    
+    /* Шапка */
+    .header { 
+      background: white; 
+      padding: 30px; 
+      border-radius: 20px; 
+      text-align: center; 
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .header h1 { 
+      font-size: 36px; 
+      color: #667eea; 
+      margin-bottom: 10px;
+    }
+    .header p { font-size: 18px; color: #666; }
+    
+    /* Главный баннер */
+    .hero { 
+      background: white; 
+      padding: 40px 30px; 
+      border-radius: 20px; 
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .price { 
+      font-size: 48px; 
+      color: #e74c3c; 
+      font-weight: bold; 
+      margin: 20px 0;
+    }
+    .price old { 
+      text-decoration: line-through; 
+      color: #999; 
+      font-size: 28px;
+      margin-left: 10px;
+    }
+    
+    /* Кнопки */
+    .btn { 
+      display: inline-block; 
+      padding: 18px 40px; 
+      margin: 10px;
+      border-radius: 50px; 
+      text-decoration: none; 
+      font-weight: bold; 
+      font-size: 18px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    .btn-primary { 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+      color: white;
+    }
+    .btn-primary:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    .btn-secondary { 
+      background: #0088cc; 
+      color: white;
+    }
+    .btn-secondary:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
+    }
+    
+    /* Преимущества */
+    .features { 
+      background: white; 
+      padding: 40px 30px; 
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .features h2 { 
+      text-align: center; 
+      margin-bottom: 30px; 
+      color: #667eea;
+      font-size: 28px;
+    }
+    .feature-item { 
+      display: flex; 
+      align-items: center; 
+      margin: 20px 0; 
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+    }
+    .feature-icon { 
+      font-size: 40px; 
+      margin-right: 20px;
+    }
+    .feature-text h3 { 
+      color: #333; 
+      margin-bottom: 5px;
+    }
+    .feature-text p { color: #666; }
+    
+    /* Галерея */
+    .gallery { 
+      background: white; 
+      padding: 40px 30px; 
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .gallery h2 { 
+      text-align: center; 
+      margin-bottom: 30px; 
+      color: #667eea;
+      font-size: 28px;
+    }
+    .gallery-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: 15px;
+    }
+    .gallery-item { 
+      background: #f8f9fa; 
+      height: 200px; 
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    
+    /* Видео */
+    .video { 
+      background: white; 
+      padding: 40px 30px; 
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .video h2 { 
+      text-align: center; 
+      margin-bottom: 30px; 
+      color: #667eea;
+      font-size: 28px;
+    }
+    .video-placeholder { 
+      background: #000; 
+      height: 400px; 
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 80px;
+    }
+    
+    /* Футер */
+    .footer { 
+      background: rgba(255,255,255,0.1); 
+      padding: 30px; 
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+    }
+    .footer a { color: white; }
+    
+    /* Для телефонов */
+    @media (max-width: 600px) {
+      .header h1 { font-size: 28px; }
+      .price { font-size: 36px; }
+      .btn { display: block; margin: 10px 0; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎁 Мистери Бокс</h1>
-    <p>Сюрприз-набор с полезными товарами</p>
+    <!-- Шапка -->
+    <div class="header">
+      <h1>🎁 Мистери Бокс</h1>
+      <p>Сюрприз-набор с полезными товарами с Ozon и Wildberries</p>
+    </div>
     
-    <div class="price">3500 ₽</div>
+    <!-- Главный блок -->
+    <div class="hero">
+      <h2>Получи бокс с сюрпризом!</h2>
+      <div class="price">
+        3500 ₽
+        <old>5000 ₽</old>
+      </div>
+      <p style="margin: 20px 0; font-size: 16px; color: #666;">
+        🔥 Осталось всего 2 бокса!<br>
+        Следующая поставка — завтра
+      </p>
+      
+      <a href="https://t.me/misteryboxiki" class="btn btn-primary">
+        📩 Заказать сейчас
+      </a>
+      <br>
+      <a href="https://t.me/misteryboxiki" class="btn btn-secondary">
+        ✈️ Подписаться на канал
+      </a>
+    </div>
     
-    <ul class="features">
-      <li>✅ Гаджеты, аксессуары, товары для дома</li>
-      <li>✅ Всё новое, в упаковке</li>
-      <li>✅ Ценность набора выше цены</li>
-      <li>✅ Доставка по России</li>
-    </ul>
+    <!-- Преимущества -->
+    <div class="features">
+      <h2>Почему стоит купить?</h2>
+      
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <h3>Только новые товары</h3>
+          <p>Всё в заводской упаковке, с гарантией</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">💰</div>
+        <div class="feature-text">
+          <h3>Выгода до 50%</h3>
+          <p>Реальная стоимость товаров в боксе — от 5000₽</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">🚚</div>
+        <div class="feature-text">
+          <h3>Быстрая доставка</h3>
+          <p>СДЭК, Почта России, Яндекс Доставка</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">🎁</div>
+        <div class="feature-text">
+          <h3>Эмоции гарантированы</h3>
+          <p>Кайф от распаковки бесценен!</p>
+        </div>
+      </div>
+    </div>
     
-    <a href="https://t.me/misteryboxiki" class="btn">📩 Заказать в Телеграм</a>
+    <!-- Галерея (замени эмодзи на реальные фото позже) -->
+    <div class="gallery">
+      <h2>Что может быть внутри?</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">📱</div>
+        <div class="gallery-item">🎧</div>
+        <div class="gallery-item">⌚</div>
+        <div class="gallery-item">🔌</div>
+      </div>
+      <p style="text-align: center; margin-top: 20px; color: #666;">
+        Гаджеты, аксессуары, товары для дома, одежда и многое другое!
+      </p>
+    </div>
     
-    <p style="margin-top: 20px; font-size: 14px;">
-      Осталось мало боксов!<br>
-      Следующая поставка — завтра
-    </p>
+    <!-- Видео (замени на реальное видео позже) -->
+    <div class="video">
+      <h2>🎬 Распаковка бокса</h2>
+      <div class="video-placeholder">▶️</div>
+      <p style="text-align: center; margin-top: 20px; color: #666;">
+        Смотри видео распаковок в нашем Телеграм-канале!
+      </p>
+    </div>
     
+    <!-- Футер -->
     <div class="footer">
-      <a href="https://t.me/misteryboxiki">@misteryboxiki</a><br>
-      Доставка: СДЭК, Почта России, Яндекс
+      <p>📞 Есть вопросы? Пиши!</p>
+      <p style="margin: 15px 0;">
+        <a href="https://t.me/misteryboxiki" style="color: white; text-decoration: underline;">
+          @misteryboxiki
+        </a>
+      </p>
+      <p style="margin-top: 20px; font-size: 14px;">
+        © 2026 Мистери Бокс<br>
+        мистерибокс.рф
+      </p>
     </div>
   </div>
 </body>
