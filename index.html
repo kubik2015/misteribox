@@ -3,214 +3,857 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мистери Бокс — Сюрприз за 3500₽ | мистерибокс.рф</title>
+  
+  <!-- ===== ОСНОВНЫЕ META-ТЕГИ ДЛЯ SEO ===== -->
+  <title>Мистери Бокс 3500₽ — Невыкупленные посылки с Ozon, Wildberries | мистерибокс.рф</title>
+  <meta name="description" content="🎁 Мистери бокс с невыкупленными посылками с маркетплейсов. Товары на 5000-10000₽ всего за 3500₽! Ozon, Wildberries, Яндекс Маркет, AliExpress. Доставка по России. Эмоции гарантированы!">
+  <meta name="keywords" content="мистери бокс, mystery box, сюрприз бокс, невыкупленные посылки, потерянные посылки, ozon, wildberries, яндекс маркет, aliexpress, бокс сюрприз, распаковка, товары со скидкой, посылки с маркетплейсов">
+  <meta name="author" content="Мистери Бокс">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ===== CANONICAL URL ===== -->
+  <link rel="canonical" href="https://мистерибокс.рф">
+  
+  <!-- ===== OPEN GRAPH (для соцсетей) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://мистерибокс.рф">
+  <meta property="og:title" content="🎁 Мистери Бокс — Невыкупленные посылки за 3500₽">
+  <meta property="og:description" content="Товары на 5000-10000₽ всего за 3500₽! Невыкупленные посылки с Ozon, Wildberries, Яндекс Маркет. Эмоции гарантированы!">
+  <meta property="og:image" content="https://мистерибокс.рф/box%20(1).jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Мистери Бокс">
+  
+  <!-- ===== TWITTER CARDS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🎁 Мистери Бокс — Сюрприз за 3500₽">
+  <meta name="twitter:description" content="Невыкупленные посылки с маркетплейсов. Товары на 5000-10000₽ за 3500₽!">
+  <meta name="twitter:image" content="https://мистерибокс.рф/box%20(1).jpg">
+  
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- ===== МИКРОРАЗМЕТКА SCHEMA.ORG ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Мистери Бокс — Сюрприз с маркетплейсов",
+    "description": "Бокс с невыкупленными посылками с Ozon, Wildberries, Яндекс Маркет, AliExpress. Товары на 5000-10000₽ за 3500₽",
+    "image": "https://мистерибокс.рф/box%20(1).jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Мистери Бокс"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://мистерибокс.рф",
+      "priceCurrency": "RUB",
+      "price": "3500",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Мистери Бокс"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Мистери Бокс",
+    "url": "https://мистерибокс.рф",
+    "logo": "https://мистерибокс.рф/logo.png",
+    "description": "Продажа мистери боксов с невыкупленными посылками с маркетплейсов",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": ["Russian"]
+    }
+  }
+  </script>
+  
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
-    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    
+    /* Фоновые логотипы маркетплейсов */
+    .bg-logos {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.06;
+      font-size: 80px;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-around;
+      padding: 40px;
+      line-height: 1.2;
+      text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+    .bg-logos span {
+      margin: 20px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .bg-logos span:nth-child(2n) { animation-delay: 1s; }
+    .bg-logos span:nth-child(3n) { animation-delay: 2s; }
+    .bg-logos span:nth-child(4n) { animation-delay: 3s; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .container { 
+      max-width: 900px; 
+      margin: 0 auto; 
+      padding: 20px; 
+      position: relative;
+      z-index: 1;
+    }
     
     /* Шапка */
     .header { 
-      background: white; 
-      padding: 30px; 
+      background: rgba(255, 255, 255, 0.98); 
+      padding: 50px 30px; 
       border-radius: 20px; 
       text-align: center; 
       margin-bottom: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+      border: 3px solid rgba(126, 34, 206, 0.2);
     }
     .header h1 { 
-      font-size: 36px; 
-      color: #667eea; 
-      margin-bottom: 10px;
+      font-size: 48px; 
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      animation: pulse 2s ease-in-out infinite;
     }
-    .header p { font-size: 18px; color: #666; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .header p { 
+      font-size: 22px; 
+      color: #555;
+      line-height: 1.6;
+    }
+    .marketplaces-line {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .mp-badge {
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
     
     /* Главный баннер */
     .hero { 
-      background: white; 
-      padding: 40px 30px; 
-      border-radius: 20px; 
+      background: rgba(255, 255, 255, 0.98); 
+      padding: 50px 40px; 
+      border-radius: 20px;
       text-align: center;
       margin-bottom: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+      border: 3px solid rgba(30, 60, 114, 0.2);
+    }
+    .hero h2 {
+      font-size: 36px;
+      color: #1e3c72;
+      margin-bottom: 20px;
     }
     .price { 
-      font-size: 48px; 
-      color: #e74c3c; 
+      font-size: 64px; 
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       font-weight: bold; 
-      margin: 20px 0;
+      margin: 25px 0;
+      animation: bounce 1s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     .price old { 
       text-decoration: line-through; 
       color: #999; 
-      font-size: 28px;
-      margin-left: 10px;
+      font-size: 36px;
+      margin-left: 15px;
     }
     
     /* Кнопки */
     .btn { 
       display: inline-block; 
-      padding: 18px 40px; 
-      margin: 10px;
+      padding: 22px 50px; 
+      margin: 15px;
       border-radius: 50px; 
       text-decoration: none; 
       font-weight: bold; 
-      font-size: 18px;
+      font-size: 20px;
       transition: all 0.3s;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
     .btn-primary { 
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%); 
       color: white;
     }
     .btn-primary:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      transform: translateY(-5px) scale(1.05); 
+      box-shadow: 0 15px 40px rgba(30, 60, 114, 0.5);
     }
     .btn-secondary { 
-      background: #0088cc; 
+      background: linear-gradient(135deg, #0088cc 0%, #0099ff 100%); 
       color: white;
     }
     .btn-secondary:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
+      transform: translateY(-5px) scale(1.05); 
+      box-shadow: 0 15px 40px rgba(0, 136, 204, 0.5);
+    }
+    
+    /* СЕКЦИЯ ГАЛЕРЕИ-КАРУСЕЛИ */
+    .gallery-section {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    }
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 36px;
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    .gallery-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    
+    /* Карусель */
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+      height: 600px;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #f8f9fa;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30, 60, 114, 0.8);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .carousel-btn:hover {
+      background: rgba(30, 60, 114, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-btn.prev { left: 20px; }
+    .carousel-btn.next { right: 20px; }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      background: #7e22ce;
+      transform: scale(1.3);
+    }
+    
+    /* Секция распаковки */
+    .unboxing {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,249,250,0.98) 100%);
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+      border: 3px solid rgba(126, 34, 206, 0.3);
+    }
+    .unboxing h2 {
+      text-align: center;
+      font-size: 40px;
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+    }
+    .unboxing-intro {
+      text-align: center;
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    .emotion-card {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      margin: 25px 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-left: 6px solid #7e22ce;
+      transition: transform 0.3s;
+    }
+    .emotion-card:hover {
+      transform: translateX(10px);
+    }
+    .emotion-card h3 {
+      color: #1e3c72;
+      font-size: 26px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .emotion-card p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+    .emotion-card ul {
+      margin: 15px 0 15px 25px;
+    }
+    .emotion-card li {
+      margin: 10px 0;
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .highlight {
+      background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+      padding: 3px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    
+    /* Происхождение */
+    .origin { 
+      background: rgba(255, 255, 255, 0.98); 
+      padding: 50px 40px; 
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    }
+    .origin h2 { 
+      text-align: center; 
+      margin-bottom: 35px; 
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 32px;
+    }
+    .origin-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 30px;
+      border-radius: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #7e22ce;
+    }
+    .origin-card h3 {
+      color: #1e3c72;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    .origin-card p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .sealed-box {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 25px 0;
+      border: 3px dashed #f39c12;
+      text-align: center;
+    }
+    .sealed-box h4 {
+      color: #d68910;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .sealed-box p {
+      color: #555;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .marketplace-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .tag {
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     
     /* Преимущества */
     .features { 
-      background: white; 
-      padding: 40px 30px; 
+      background: rgba(255, 255, 255, 0.98); 
+      padding: 50px 40px; 
       border-radius: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
     }
     .features h2 { 
       text-align: center; 
-      margin-bottom: 30px; 
-      color: #667eea;
-      font-size: 28px;
+      margin-bottom: 40px; 
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 32px;
     }
     .feature-item { 
       display: flex; 
-      align-items: center; 
-      margin: 20px 0; 
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 10px;
+      align-items: flex-start; 
+      margin: 25px 0; 
+      padding: 25px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .feature-item:hover {
+      transform: translateX(10px);
     }
     .feature-icon { 
-      font-size: 40px; 
-      margin-right: 20px;
+      font-size: 50px; 
+      margin-right: 25px;
+      flex-shrink: 0;
     }
     .feature-text h3 { 
-      color: #333; 
-      margin-bottom: 5px;
+      color: #1e3c72; 
+      margin-bottom: 10px;
+      font-size: 22px;
     }
-    .feature-text p { color: #666; }
-    
-    /* Галерея */
-    .gallery { 
-      background: white; 
-      padding: 40px 30px; 
-      border-radius: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    }
-    .gallery h2 { 
-      text-align: center; 
-      margin-bottom: 30px; 
-      color: #667eea;
-      font-size: 28px;
-    }
-    .gallery-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-      gap: 15px;
-    }
-    .gallery-item { 
-      background: #f8f9fa; 
-      height: 200px; 
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
+    .feature-text p { 
+      color: #666;
+      line-height: 1.6;
     }
     
-    /* Видео */
-    .video { 
-      background: white; 
-      padding: 40px 30px; 
+    /* FAQ */
+    .faq-section {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 50px 40px;
       border-radius: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
     }
-    .video h2 { 
-      text-align: center; 
-      margin-bottom: 30px; 
-      color: #667eea;
-      font-size: 28px;
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 32px;
     }
-    .video-placeholder { 
-      background: #000; 
-      height: 400px; 
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 80px;
+    .faq-item {
+      margin: 25px 0;
+      padding: 25px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      border-left: 5px solid #7e22ce;
+    }
+    .faq-item h3 {
+      color: #1e3c72;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+    .faq-item p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 16px;
     }
     
     /* Футер */
     .footer { 
-      background: rgba(255,255,255,0.1); 
-      padding: 30px; 
+      background: rgba(0,0,0,0.4); 
+      backdrop-filter: blur(10px);
+      padding: 40px 30px; 
       border-radius: 20px;
       text-align: center;
       color: white;
+      margin-bottom: 30px;
     }
-    .footer a { color: white; }
+    .footer a { 
+      color: #a5b4fc; 
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer-small {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
     
     /* Для телефонов */
-    @media (max-width: 600px) {
-      .header h1 { font-size: 28px; }
-      .price { font-size: 36px; }
-      .btn { display: block; margin: 10px 0; }
+    @media (max-width: 768px) {
+      .header h1 { font-size: 36px; }
+      .price { font-size: 48px; }
+      .btn { display: block; margin: 15px auto; max-width: 90%; }
+      .origin, .features, .hero, .unboxing, .faq-section, .gallery-section { padding: 30px 20px; }
+      .feature-item { flex-direction: column; }
+      .feature-icon { margin-right: 0; margin-bottom: 15px; }
+      .bg-logos { font-size: 40px; }
+      .carousel-item { height: 400px; }
     }
   </style>
 </head>
 <body>
+  <!-- Фоновые логотипы маркетплейсов -->
+  <div class="bg-logos">
+    <span>OZON</span>
+    <span>WILDBERRIES</span>
+    <span>OZON</span>
+    <span>ЯНДЕКС МАРКЕТ</span>
+    <span>ALIEXPRESS</span>
+    <span>WILDBERRIES</span>
+    <span>OZON</span>
+    <span>ALIEXPRESS</span>
+    <span>ЯНДЕКС МАРКЕТ</span>
+    <span>WILDBERRIES</span>
+  </div>
+  
   <div class="container">
     <!-- Шапка -->
     <div class="header">
-      <h1>🎁 Мистери Бокс</h1>
-      <p>Сюрприз-набор с полезными товарами с Ozon и Wildberries</p>
+      <h1>🎁 МИСТЕРИ БОКС</h1>
+      <p>Невыкупленные посылки с маркетплейсов<br>
+      <strong>Товары из потерянных посылок — твои эмоции!</strong></p>
+      <div class="marketplaces-line">
+        <span class="mp-badge">🔵 Ozon</span>
+        <span class="mp-badge">🟣 Wildberries</span>
+        <span class="mp-badge">🟡 Яндекс Маркет</span>
+        <span class="mp-badge">🔴 AliExpress</span>
+      </div>
     </div>
     
     <!-- Главный блок -->
     <div class="hero">
-      <h2>Получи бокс с сюрпризом!</h2>
+      <h2>🎉 Почувствуй кайф от распаковки!</h2>
+      <p style="font-size: 20px; color: #666; margin: 25px 0; line-height: 1.8;">
+        Представь: ты получаешь коробку, полную сюрпризов...<br>
+        <strong>Каждая вещь — новая, в упаковке</strong><br>
+        Реальная стоимость: <span class="highlight">от 5000₽ до 10000₽</span><br>
+        Ты платишь: <span class="highlight">всего 3500₽</span>
+      </p>
       <div class="price">
         3500 ₽
         <old>5000 ₽</old>
       </div>
-      <p style="margin: 20px 0; font-size: 16px; color: #666;">
+      <p style="margin: 30px 0; font-size: 18px; color: #e74c3c; font-weight: bold;">
         🔥 Осталось всего 2 бокса!<br>
-        Следующая поставка — завтра
+        <span style="color: #666; font-weight: normal;">Следующая поставка — уже завтра</span>
       </p>
       
       <a href="https://t.me/misteryboxiki" class="btn btn-primary">
-        📩 Заказать сейчас
+        📩 ХОЧУ БОКС!
       </a>
       <br>
       <a href="https://t.me/misteryboxiki" class="btn btn-secondary">
-        ✈️ Подписаться на канал
+        ✈️ Смотри распаковки в канале
       </a>
+    </div>
+    
+    <!-- ГАЛЕРЕЯ С КАРУСЕЛЬЮ -->
+    <div class="gallery-section">
+      <h2>📦 Смотри, что попадает в наших боксах!</h2>
+      <p class="gallery-subtitle">Листай карусель — все фото реальных товаров из невыкупленных посылок</p>
+      
+      <!-- Карусель -->
+      <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-item">
+            <img src="box%20(1).jpeg" alt="Закрытый бокс">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(1).jpg" alt="Открытый бокс">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(2).jpeg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(2).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(3).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(4).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(5).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(6).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(7).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(8).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(9).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(10).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(11).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(12).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(13).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(14).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(15).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(16).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(17).jpg" alt="Товар из бокса">
+          </div>
+          <div class="carousel-item">
+            <img src="box%20(18).jpg" alt="Товар из бокса">
+          </div>
+        </div>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+      </div>
+      
+      <!-- Точки навигации -->
+      <div class="carousel-dots" id="carouselDots"></div>
+      
+      <p style="text-align: center; margin-top: 30px; color: #666; font-size: 16px;">
+        <strong>💡 И это далеко не всё!</strong><br>
+        В каждом боксе — случайный набор товаров. Никогда не знаешь, что получишь!<br>
+        <strong>Закажи сейчас</strong> и узнай сам!
+      </p>
+    </div>
+    
+    <!-- Эмоции от распаковки -->
+    <div class="unboxing">
+      <h2>🎁 Что ты почувствуешь, когда получишь бокс?</h2>
+      <p class="unboxing-intro">
+        "Это как День Рождения, только лучше — ведь сюрприз действительно неожиданный!"
+      </p>
+      
+      <div class="emotion-card">
+        <h3>📦 Момент получения</h3>
+        <p>
+          Курьер приносит <strong>загадочную запечатанную коробку</strong>. Она тяжелее, чем ты ожидал! 
+          Ты чувствуешь, как <span class="highlight">сердце бьётся чаще</span> — ведь внутри 
+          что-то ценное, что-то интересное... <strong>Мы сами не знаем, что внутри!</strong>
+        </p>
+        <ul>
+          <li>🎯 <strong>Предвкушение</strong> — что же там?</li>
+          <li>🤩 <strong>Любопытство</strong> — не терпится открыть!</li>
+          <li>😍 <strong>Волнение</strong> — а вдруг там именно то, о чём мечтал?</li>
+        </ul>
+      </div>
+      
+      <div class="emotion-card">
+        <h3>✂️ Первая секунда распаковки</h3>
+        <p>
+          Ты аккуратно <strong>разрезаешь скотч</strong>, открываешь крышку... и 
+          <span class="highlight">видишь целый мир возможностей</span>! 
+          Первая вещь — уже ценная. Вторая — ещё лучше. Третья — вообще бомба!
+        </p>
+        <ul>
+          <li>🎁 <strong>Радость</strong> — каждая вещь как подарок</li>
+          <li>💡 <strong>Удивление</strong> — "Ого, это мне пригодится!"</li>
+          <li>🤑 <strong>Удовлетворение</strong> — "Я сэкономил кучу денег!"</li>
+        </ul>
+      </div>
+      
+      <div class="emotion-card">
+        <h3>🎊 Эмоции от находок</h3>
+        <p>
+          <strong>Гаджеты</strong> — "Круто! Это же именно то, что я хотел!"<br>
+          <strong>Аксессуары</strong> — "Стильно! Буду использовать каждый день!"<br>
+          <strong>Товары для дома</strong> — "Как раз то, что нужно!"<br>
+          <strong>Неожиданные вещи</strong> — "Никогда бы не подумал, но это супер!"
+        </p>
+        <ul>
+          <li>💖 <strong>Восторг</strong> от каждой находки</li>
+          <li>🎯 <strong>Практическая польза</strong> — всё пригодится</li>
+          <li>💰 <strong>Финансовая выгода</strong> — экономия до 6500₽!</li>
+          <li>📸 <strong>Контент для соцсетей</strong> — друзья завидуют!</li>
+        </ul>
+      </div>
+      
+      <div class="emotion-card">
+        <h3>🌟 Итоговое ощущение</h3>
+        <p>
+          Когда всё разложено, ты смотришь на этот <strong>горы товаров</strong> и 
+          понимаешь: <span class="highlight">"Это было потрясающе!"</span>
+        </p>
+        <ul>
+          <li>😎 <strong>Ты умница</strong> — сделал выгодную покупку</li>
+          <li>🎉 <strong>Ты счастлив</strong> — получил кучу полезных вещей</li>
+          <li>🔥 <strong>Ты в восторге</strong> — хочешь ещё!</li>
+          <li>💯 <strong>100% эмоций</strong> — это того стоило!</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Происхождение боксов -->
+    <div class="origin">
+      <h2>📦 Откуда берутся наши боксы?</h2>
+      
+      <div class="origin-card">
+        <h3>🔍 Что такое «невыкупленные посылки»?</h3>
+        <p>
+          Когда кто-то заказывает товар на <strong>Ozon, Wildberries, Яндекс Маркете или AliExpress</strong>, 
+          но <span class="highlight">не забирает его</span> из пункта выдачи — посылка становится 
+          «невыкупленной».
+        </p>
+        <p style="margin-top: 15px;">
+          <strong>Почему так происходит?</strong> Люди передумали, не успели, потеряли уведомление, 
+          изменились планы... А товар <strong>остаётся новым, в заводской упаковке</strong>!
+        </p>
+      </div>
+      
+      <!-- ВАЖНО ПРО ЗАПЕЧАТАННЫЕ КОРОБКИ -->
+      <div class="sealed-box">
+        <h4>🔒 ВСЕ ПОСЫЛКИ ЗАПЕЧАТАНЫ!</h4>
+        <p>
+          <strong>Мы получаем коробки запечатанными и НЕ ЗНАЕМ, что внутри!</strong><br>
+          Это настоящий сюрприз и для нас, и для вас. Каждый бокс — это лотерея.<br>
+          <strong>Именно поэтому цена такая низкая</strong> — мы сами не знаем, что внутри!<br>
+          <span class="highlight">Это делает распаковку ещё более захватывающей!</span>
+        </p>
+      </div>
+      
+      <div class="origin-card">
+        <h3>🌍 С какими маркетплейсами работаем?</h3>
+        <div class="marketplace-tags">
+          <span class="tag">🔵 Ozon</span>
+          <span class="tag">🟣 Wildberries</span>
+          <span class="tag">🟡 Яндекс Маркет</span>
+          <span class="tag">🔴 AliExpress</span>
+          <span class="tag">🟢 СберМегаМаркет</span>
+          <span class="tag">🟠 Kuper</span>
+          <span class="tag">🔷 Lamoda</span>
+          <span class="tag">⚫ Amazon</span>
+          <span class="tag">🟡 eBay</span>
+          <span class="tag">🔷 ASOS</span>
+        </div>
+        <p style="margin-top: 20px; font-size: 15px; color: #777; text-align: center;">
+          <strong>Российские и международные площадки</strong> — только оригинальные товары!
+        </p>
+      </div>
+      
+      <div class="origin-card">
+        <h3>💰 Почему это выгодно?</h3>
+        <p>
+          Маркетплейсы <strong>не хранят</strong> невыкупленные товары вечно. Они возвращаются 
+          продавцам или <span class="highlight">утилизируются</span>. Мы выкупаем такие посылки 
+          <strong>оптом со скидкой до 70%</strong>!
+        </p>
+        <p style="margin-top: 15px;">
+          <strong>Ты получаешь:</strong> товаров на 5000-10000₽<br>
+          <strong>Ты платишь:</strong> только 3500₽<br>
+          <strong>Твоя выгода:</strong> до 6500₽! 💸
+        </p>
+      </div>
     </div>
     
     <!-- Преимущества -->
@@ -218,18 +861,29 @@
       <h2>Почему стоит купить?</h2>
       
       <div class="feature-item">
-        <div class="feature-icon">✅</div>
+        <div class="feature-icon">📦</div>
         <div class="feature-text">
           <h3>Только новые товары</h3>
-          <p>Всё в заводской упаковке, с гарантией</p>
+          <p>Все вещи в заводской упаковке. 
+          Никакого б/у или брака — только оригиналы!</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">🎲</div>
+        <div class="feature-text">
+          <h3>Настоящий сюрприз</h3>
+          <p>Мы сами не знаем, что внутри! Все посылки приходят запечатанными. 
+          Это настоящий мистери бокс!</p>
         </div>
       </div>
       
       <div class="feature-item">
         <div class="feature-icon">💰</div>
         <div class="feature-text">
-          <h3>Выгода до 50%</h3>
-          <p>Реальная стоимость товаров в боксе — от 5000₽</p>
+          <h3>Выгода до 65%</h3>
+          <p>Реальная стоимость товаров в боксе — от 5000₽ до 10000₽. 
+          Ты платишь только 3500₽! Экономия до 6500₽!</p>
         </div>
       </div>
       
@@ -237,55 +891,160 @@
         <div class="feature-icon">🚚</div>
         <div class="feature-text">
           <h3>Быстрая доставка</h3>
-          <p>СДЭК, Почта России, Яндекс Доставка</p>
+          <p>Отправляем в день заказа! СДЭК, Почта России, 
+          Яндекс Доставка — выбирай удобную.</p>
         </div>
       </div>
       
       <div class="feature-item">
         <div class="feature-icon">🎁</div>
         <div class="feature-text">
-          <h3>Эмоции гарантированы</h3>
-          <p>Кайф от распаковки бесценен!</p>
+          <h3>100% эмоций</h3>
+          <p>Кайф от распаковки бесценен! Каждый бокс — это сюрприз, 
+          который принесёт радость и удивление.</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-text">
+          <h3>Безопасная сделка</h3>
+          <p>Оплата через Авито или напрямую. Гарантия получения 
+          товара или вернём деньги!</p>
         </div>
       </div>
     </div>
     
-    <!-- Галерея (замени эмодзи на реальные фото позже) -->
-    <div class="gallery">
-      <h2>Что может быть внутри?</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item">📱</div>
-        <div class="gallery-item">🎧</div>
-        <div class="gallery-item">⌚</div>
-        <div class="gallery-item">🔌</div>
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>❓ Частые вопросы о мистери боксах</h2>
+      
+      <div class="faq-item">
+        <h3>📦 Что такое мистери бокс?</h3>
+        <p>
+          Мистери бокс (mystery box) — это <strong>запечатанная коробка</strong> с товарами с маркетплейсов 
+          Ozon, Wildberries, Яндекс Маркет и AliExpress. <strong>Мы сами не знаем, что внутри!</strong>
+          Это невыкупленные или потерянные посылки, которые мы выкупаем оптом и продаём со скидкой до 70%.
+        </p>
       </div>
-      <p style="text-align: center; margin-top: 20px; color: #666;">
-        Гаджеты, аксессуары, товары для дома, одежда и многое другое!
-      </p>
-    </div>
-    
-    <!-- Видео (замени на реальное видео позже) -->
-    <div class="video">
-      <h2>🎬 Распаковка бокса</h2>
-      <div class="video-placeholder">▶️</div>
-      <p style="text-align: center; margin-top: 20px; color: #666;">
-        Смотри видео распаковок в нашем Телеграм-канале!
-      </p>
+      
+      <div class="faq-item">
+        <h3>🔒 Знаете ли вы, что внутри бокса?</h3>
+        <p>
+          <strong>Нет, не знаем!</strong> Все посылки приходят к нам запечатанными. 
+          Мы вскрываем их только при вас (или записываем видео распаковки). 
+          Это делает каждый бокс настоящим сюрпризом!
+        </p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>💰 Сколько стоит мистери бокс?</h3>
+        <p>
+          Цена мистери бокса — 3500₽. Реальная стоимость товаров внутри составляет от 5000₽ до 10000₽. 
+          Таким образом, вы экономите от 1500₽ до 6500₽!
+        </p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>🚚 Как происходит доставка?</h3>
+        <p>
+          Мы отправляем боксы по всей России через СДЭК, Почту России или Яндекс Доставку. 
+          Отправка в день заказа! Срок доставки зависит от вашего города.
+        </p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>✅ Все ли товары новые?</h3>
+        <p>
+          Да! Все товары в мистери боксе — новые, в заводской упаковке. 
+          Мы работаем только с невыкупленными посылками, которые не были в использовании.
+        </p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>🔄 Можно ли вернуть бокс?</h3>
+        <p>
+          Так как это товар-сюрприз, возврат возможен только в случае брака. 
+          Если вам пришёл бракованный товар — мы заменим его или вернём деньги.
+        </p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>📍 Как заказать?</h3>
+        <p>
+          Напишите нам в Телеграм: <a href="https://t.me/misteryboxiki" style="color: #7e22ce;">@misteryboxiki</a>. 
+          Мы ответим на все вопросы и поможем с оформлением заказа!
+        </p>
+      </div>
     </div>
     
     <!-- Футер -->
     <div class="footer">
-      <p>📞 Есть вопросы? Пиши!</p>
-      <p style="margin: 15px 0;">
-        <a href="https://t.me/misteryboxiki" style="color: white; text-decoration: underline;">
-          @misteryboxiki
+      <p style="font-size: 24px; margin-bottom: 20px;">📞 Готов получить свой бокс?</p>
+      <p style="margin: 25px 0; font-size: 20px;">
+        <a href="https://t.me/misteryboxiki">✈️ Пиши: @misteryboxiki</a>
+      </p>
+      <p style="margin-top: 30px; font-size: 16px;">
+        <a href="https://t.me/misteryboxiki" class="btn btn-primary" style="display: inline-block; margin: 10px;">
+          🎁 Заказать бокс
         </a>
       </p>
-      <p style="margin-top: 20px; font-size: 14px;">
-        © 2026 Мистери Бокс<br>
-        мистерибокс.рф
-      </p>
+      <div class="footer-small">
+        <p>© 2026 Мистери Бокс | мистерибокс.рф</p>
+        <p style="margin-top: 10px;">
+          Не является официальным продуктом Ozon, Wildberries, Яндекс Маркет, AliExpress или других маркетплейсов.<br>
+          Все товарные знаки принадлежат их правообладателям.
+        </p>
+      </div>
     </div>
   </div>
+  
+  <!-- Скрипт для карусели -->
+  <script>
+    let currentSlide = 0;
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const totalSlides = 20;
+    
+    // Создаем точки навигации
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+    
+    const dots = document.querySelectorAll('.dot');
+    
+    function moveCarousel(direction) {
+      currentSlide += direction;
+      
+      if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+      } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+      }
+      
+      updateCarousel();
+    }
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+    
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+    
+    // Автопрокрутка каждые 5 секунд
+    setInterval(() => {
+      moveCarousel(1);
+    }, 5000);
+  </script>
 </body>
 </html>
